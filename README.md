@@ -1,18 +1,19 @@
-# Mi Proyecto React
+# SaborListo 🍲
 
-Aplicación web desarrollada en React para el Concurso de Innovación.
+**SaborListo** es una aplicación web construida con React que permite al usuario ingresar ingredientes y obtener recetas de cocina que incluyan esos ingredientes.  
+Incluso puede sugerir recetas que contengan algunos ingredientes adicionales, pero siempre respetando los que el usuario ingresó.
 
-## Tecnologías
+## ⚙️ Requisitos
+
+- Node.js (v16 o superior)
+- npm (v8 o superior)
+- Navegador web
+
+## 🚀 Tecnologías usadas
+
 - React
-- Create React App
-- JavaScript
-- API de recetas de cocina (Spoonacular)
+- CSS
+- Fetch API / Axios
+- API externa de recetas (Spoonacular)
 
-## Requisitos
-- Node.js v18 o superior
-- npm
-
-## Uso
-```bash
-npm install
-npm run dev
+---
