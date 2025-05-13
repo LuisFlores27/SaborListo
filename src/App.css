@@ -1,0 +1,410 @@
+/* Estilos generales */
+:root {
+  --color-primary: #ff6b6b;
+  --color-secondary: #4ecdc4;
+  --color-accent: #ffd166;
+  --color-dark: #2d3436;
+  --color-light: #f9f9f9;
+  --color-gray: #dfe6e9;
+
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Encabezado */
+header {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+/* Contenido principal */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  main {
+      grid-template-columns: 300px 1fr;
+  }
+}
+
+section {
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-gray);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  margin: 1rem 0;
+  color: var(--color-dark);
+}
+
+/* Sección de búsqueda */
+#buscador {
+  position: sticky;
+  top: 1rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-gray);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e84a5f;
+}
+
+#limpiar {
+  background-color: var(--color-dark);
+  margin-left: 0.5rem;
+}
+
+#limpiar:hover {
+  background-color: #1e272e;
+}
+
+#buscar {
+  background-color: var(--color-secondary);
+  margin-top: 1rem;
+  width: 100%;
+  font-weight: bold;
+}
+
+#buscar:hover {
+  background-color: #3bb4a7;
+}
+
+/* Lista de ingredientes */
+#lista-ingredientes {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+#lista-ingredientes li {
+  background-color: var(--color-gray);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-eliminar {
+  background-color: #e84a5f;
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  padding: 0;
+}
+
+.btn-eliminar:hover {
+  background-color: #c0392b;
+}
+
+/* Resultados */
+.recetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.receta-card {
+  background-color: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.receta-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Ajuste de imagen en las tarjetas de receta */
+.receta-imagen {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.receta-info {
+  padding: 1rem;
+}
+
+.receta-info h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-dark);
+}
+
+.receta-info p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.btn-ver-detalle {
+  width: 100%;
+  margin-top: 0.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+.btn-ver-detalle:hover {
+  background-color: #ffbf42;
+}
+
+/* Estado de carga */
+.cargando {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  color: #555;
+}
+
+.error {
+  color: var(--color-primary);
+  text-align: center;
+  padding: 1rem;
+}
+
+.no-resultados {
+  text-align: center;
+  padding: 2rem;
+  color: #555;
+}
+
+/* Detalle de receta */
+.detalle-receta {
+  background-color: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.detalle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.btn-volver {
+  background-color: var(--color-dark);
+  padding: 0.5rem 1rem;
+}
+
+/* Ajustar el padding dentro de los elementos del detalle */
+.detalle-contenido {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem; 
+}
+
+@media (min-width: 768px) {
+  .detalle-contenido {
+    grid-template-columns: minmax(300px, 2fr) 3fr;
+  }
+}
+
+/* Ajuste de imagen en detalle de receta */
+.detalle-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.detalle-meta {
+  margin-top: 1rem;
+}
+
+.detalle-meta p {
+  margin-bottom: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.vegetariano {
+  background-color: #a3cb38;
+  color: white;
+}
+
+.vegano {
+  background-color: #26de81;
+  color: white;
+}
+
+.sin-gluten {
+  background-color: #f7b731;
+  color: white;
+}
+
+.ingredientes-lista,
+.instrucciones-lista {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ingredientes-lista li,
+.instrucciones-lista li {
+  margin-bottom: 0.5rem;
+}
+
+.instrucciones-lista li {
+  margin-bottom: 1rem;
+}
+
+
+/* Footer */
+footer {
+  background-color: var(--color-dark);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.footer-box {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+}
+
+.footer-section h3 {
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+.footer-section p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: var(--color-gray);
+}
+
+.footer-section a:hover {
+  color: white;
+}
+
+/* Espacio entre párrafos y elementos de lista dentro de recetas */
+.receta-info p,
+.receta-info li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+/* Espacio entre pasos de instrucciones */
+.receta-info ol li {
+  margin-bottom: 0.6rem;
+}
+
+/* Separación del botón "Cerrar" */
+.receta-info button {
+  margin-top: 1.2rem;
+}
+
+/* Ajusta el padding de listas no ordenadas (ingredientes) */
+.receta-info ul {
+  padding-left: 1.5rem;
+  list-style-position: inside;
+}
+
+/* Ajusta el padding de listas ordenadas (instrucciones) */
+.receta-info ol {
+  padding-left: 1.5rem;
+  list-style-position: inside;
+}
